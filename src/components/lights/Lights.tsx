@@ -1,9 +1,10 @@
 import * as React from "react";
-
+import { softShadows } from "@react-three/drei";
+softShadows({});
 export const Lights: React.FC = () => {
   return (
     <>
-      {/* <fog attach="fog" args={["#fff", 900, 4000]} /> */}
+      {/* <fog attach="fog" args={["#fff", 0, 1000]} /> */}
       <ambientLight intensity={0.4} />
       <directionalLight
         position={[-100, 800, -100]}
