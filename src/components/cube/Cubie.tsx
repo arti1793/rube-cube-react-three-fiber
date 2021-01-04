@@ -6,21 +6,33 @@ export interface ICubie {
 }
 export const Cubie: React.FC<ICubie> = ({ cubiePartList }) => {
   const [hovered, bindHover] = useHover();
+
   return (
     <>
-      {cubiePartList.map(({ type, material, geometry, rotation }) => (
+      {cubiePartList.map(({ type, material, geometry, rotation }, i) => (
         <mesh
+          key={i}
           {...bindHover}
           onClick={(ev) => {
+            if (type === "label") return;
             ev.stopPropagation();
-            console.log({ type, material, geometry, rotation });
+            console.log({
+              position: geometry.boundingBox?.max
+                ?.toArray()
+                .map((num) => Math.round(num))
+                .join(" "),
+              type,
+              material,
+              geometry,
+              rotation,
+            });
           }}
           castShadow
           receiveShadow
           material={material}
           geometry={geometry}
           rotation={rotation}
-          scale={hovered ? [105, 105, 105] : [100, 100, 100]}
+          scale={hovered ? [101, 101, 101] : [100, 100, 100]}
         />
       ))}
     </>

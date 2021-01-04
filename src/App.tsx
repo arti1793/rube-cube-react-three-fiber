@@ -49,7 +49,7 @@ export const App: React.FC<{}> = () => (
       <Suspense fallback={null}>
         <Model attach={"mesh"} />
         <Floor />
-        {/* <axesHelper scale={[500, 700, 1000]} /> */}
+        <axesHelper scale={[500, 700, 1000]} />
         <ZoomWithOrbital />
       </Suspense>
     </Canvas>

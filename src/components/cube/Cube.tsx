@@ -16,6 +16,9 @@ import { useAnimations } from "@react-three/drei/useAnimations";
 import { GLTFResult, ICubiePart } from "./CubeTypes";
 import { cubeConfig2 } from "./CubeConstants";
 import { Cubie } from "./Cubie";
+import { useSpring, useTrail } from "react-spring";
+import { useHotkeys } from "react-hotkeys-hook";
+import { useCubeViewRotation, useLeanFlags } from "./CubeHelpers";
 // import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 // import { useSpring } from "react-spring";
 
@@ -26,17 +29,20 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const { actions } = useAnimations(animations, (group as unknown) as any);
   ((window as unknown) as any).actions = actions;
 
-  const halfPi = Math.PI / 2;
+  const flags = useLeanFlags();
+  const rotation = useCubeViewRotation(flags, group.current?.rotation);
+
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group rotation={[-halfPi, 0, 0]}>
-        <group position={[0, 0, 0]} rotation={[-halfPi, 0, -halfPi]}>
-          <group rotation={[halfPi, 0, 0]}>
-            {cubeConfig2(result).map((cubiePartList: ICubiePart[], i) => (
-              <Cubie key={i} cubiePartList={cubiePartList} />
-            ))}
-          </group>
-        </group>
+    <group
+      ref={group}
+      {...props}
+      dispose={null}
+      rotation={[rotation.x, rotation.y, rotation.z]}
+    >
+      <group position={[0, 0, 0]} rotation={[-Math.PI, 0, -Math.PI / 2]}>
+        {cubeConfig2(result).map((cubiePartList: ICubiePart[], i) => (
+          <Cubie key={i} cubiePartList={cubiePartList} />
+        ))}
       </group>
     </group>
   );
