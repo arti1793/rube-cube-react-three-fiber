@@ -1,545 +1,752 @@
-import { GLTFResult, ICubiePart } from "./CubeTypes";
+import { Vector3 } from "three";
+import { GLTFResult, TConfig } from "./CubeTypes";
 
-export const cubeConfig2: (result: GLTFResult) => ICubiePart[][] = ({
+const halfPi = Math.PI / 2;
+
+export const getConfig: (result: GLTFResult) => TConfig = ({
   materials,
   nodes,
-}) => {
-  const halfPi = Math.PI / 2;
-  return [
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube015_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+}) => [
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube015_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube015_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube015_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube035_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube035_Red_0,
       },
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube085_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube085_Yellow_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube065_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube065_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube010_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube010_Cube_0" },
+      pseudoPosition: new Vector3(...[0, 1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube010_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube010_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube037_Red_0.geometry,
         rotation: [0, 1.57, 0],
+        nodeMeta: nodes.Cube037_Red_0,
       },
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube086_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube086_Yellow_0,
       },
     ],
-
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube016_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube016_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube016_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube016_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube033_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube033_Red_0,
       },
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube078_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube078_Yellow_0,
       },
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube048_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube048_Green_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube012_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube012_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube012_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube012_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube041_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube041_Red_0,
       },
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube049_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube049_Green_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube017_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube017_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube017_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube017_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube036_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube036_Red_0,
       },
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube039_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube039_Green_0,
       },
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube075_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube075_White_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube024_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube024_Cube_0" },
+      pseudoPosition: new Vector3(...[0, 1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube024_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube024_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube040_Red_0.geometry,
         rotation: [0, 1.57, 0],
+        nodeMeta: nodes.Cube040_Red_0,
       },
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube074_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube074_White_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube014_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube014_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube014_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube014_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube034_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube034_Red_0,
       },
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube072_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube072_White_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube062_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube062_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube027_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube027_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube027_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube027_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube060_Red_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube060_Red_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube063_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube063_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube032_Cube_0.geometry,
-        rotation: [-halfPi, 0, halfPi],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube032_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 0, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube032_Cube_0.geometry,
+      rotation: [-halfPi, 0, halfPi],
+      nodeMeta: nodes.Cube032_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube084_Yellow_0.geometry,
         rotation: [-Math.PI, 0, -halfPi],
+        nodeMeta: nodes.Cube084_Yellow_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube066_Blue_0.geometry,
         rotation: [-halfPi, 0, halfPi],
+        nodeMeta: nodes.Cube066_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube021_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube021_Cube_0" },
+      pseudoPosition: new Vector3(...[0, 0, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube021_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube021_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube082_Yellow_0.geometry,
         rotation: [0, -1.57, 0],
+        nodeMeta: nodes.Cube082_Yellow_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube011_Cube_0.geometry,
-        rotation: [-halfPi, 0, halfPi],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube011_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 0, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube011_Cube_0.geometry,
+      rotation: [-halfPi, 0, halfPi],
+      nodeMeta: nodes.Cube011_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube079_Yellow_0.geometry,
         rotation: [-Math.PI, 0, -halfPi],
+        nodeMeta: nodes.Cube079_Yellow_0,
       },
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube047_Green_0.geometry,
         rotation: [halfPi, 0, -halfPi],
+        nodeMeta: nodes.Cube047_Green_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube025_Cube_0.geometry,
-        rotation: [-halfPi, halfPi, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube025_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 0, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube025_Cube_0.geometry,
+      rotation: [-halfPi, halfPi, 0],
+      nodeMeta: nodes.Cube025_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube045_Green_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube045_Green_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube030_Cube_0.geometry,
-        rotation: [-halfPi, 0, halfPi],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube030_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, 0, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube030_Cube_0.geometry,
+      rotation: [-halfPi, 0, halfPi],
+      nodeMeta: nodes.Cube030_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube042_Green_0.geometry,
         rotation: [halfPi, 0, -halfPi],
+        nodeMeta: nodes.Cube042_Green_0,
       },
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube076_White_0.geometry,
         rotation: [0, 0, halfPi],
+        nodeMeta: nodes.Cube076_White_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube007_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
-
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube007_Cube_0" },
+      pseudoPosition: new Vector3(...[0, 0, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube007_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube007_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube073_White_0.geometry,
         rotation: [0, 1.57, 0],
+        nodeMeta: nodes.Cube073_White_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube031_Cube_0.geometry,
-        rotation: [-halfPi, 0, halfPi],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube031_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 0, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube031_Cube_0.geometry,
+      rotation: [-halfPi, 0, halfPi],
+      nodeMeta: nodes.Cube031_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube071_White_0.geometry,
         rotation: [0, 0, halfPi],
+        nodeMeta: nodes.Cube071_White_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube061_Blue_0.geometry,
         rotation: [-halfPi, 0, halfPi],
+        nodeMeta: nodes.Cube061_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube008_Cube_0.geometry,
-        rotation: [-halfPi, halfPi, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube008_Cube_0" },
+      pseudoPosition: new Vector3(...[1, 0, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube008_Cube_0.geometry,
+      rotation: [-halfPi, halfPi, 0],
+      nodeMeta: nodes.Cube008_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube064_Blue_0.geometry,
         rotation: [-halfPi, halfPi, 0],
+        nodeMeta: nodes.Cube064_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube020_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube020_Cube_0" },
+      pseudoPosition: new Vector3(...[1, -1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube020_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube020_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube083_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube083_Yellow_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube067_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube067_Blue_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube053_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube053_Orange_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube001_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube001_Cube_0" },
+      pseudoPosition: new Vector3(...[1, -1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube001_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube001_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube068_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube068_Blue_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube055_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube055_Orange_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube022_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube022_Cube_0" },
+      pseudoPosition: new Vector3(...[0, -1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube022_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube022_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube081_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube081_Yellow_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube052_Orange_0.geometry,
         rotation: [-Math.PI, -1.57, 0],
+        nodeMeta: nodes.Cube052_Orange_0,
       },
     ],
-
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube019_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube019_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, -1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube019_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube019_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Yellow,
         geometry: nodes.Cube080_Yellow_0.geometry,
         rotation: [Math.PI, 0, Math.PI],
+        nodeMeta: nodes.Cube080_Yellow_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube051_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube051_Orange_0,
       },
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube046_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube046_Green_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube029_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube029_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, -1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube029_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube029_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube044_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube044_Green_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube050_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube050_Orange_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube018_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube018_Cube_0" },
+      pseudoPosition: new Vector3(...[-1, -1, -1]),
+      material: materials.Cube,
+      geometry: nodes.Cube018_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube018_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Green,
         geometry: nodes.Cube043_Green_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube043_Green_0,
       },
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube077_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube077_White_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube058_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube058_Orange_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube023_Cube_0.geometry,
-        rotation: [0, 1.57, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube023_Cube_0" },
+      pseudoPosition: new Vector3(...[0, -1, 1]),
+      material: materials.Cube,
+      geometry: nodes.Cube023_Cube_0.geometry,
+      rotation: [0, 1.57, 0],
+      nodeMeta: nodes.Cube023_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube069_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube069_White_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube057_Orange_0.geometry,
         rotation: [-Math.PI, -1.57, 0],
+        nodeMeta: nodes.Cube057_Orange_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube000_Cube_0.geometry,
-        rotation: [-Math.PI / 2, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube000_Cube_0" },
+      pseudoPosition: new Vector3(...[1, -1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube000_Cube_0.geometry,
+      rotation: [-Math.PI / 2, 0, 0],
+      nodeMeta: nodes.Cube000_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.White,
         geometry: nodes.Cube070_White_0.geometry,
         rotation: [0, 0, 0],
+        nodeMeta: nodes.Cube070_White_0,
       },
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube056_Orange_0.geometry,
         rotation: [-halfPi, -halfPi, 0],
+        nodeMeta: nodes.Cube056_Orange_0,
       },
       {
         type: "label",
         material: materials.Blue,
         geometry: nodes.Cube059_Blue_0.geometry,
         rotation: [-halfPi, 0, 0],
+        nodeMeta: nodes.Cube059_Blue_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube026_Cube_0.geometry,
-        rotation: [-halfPi, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube026_Cube_0" },
+      pseudoPosition: new Vector3(...[0, 1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube026_Cube_0.geometry,
+      rotation: [-halfPi, 0, 0],
+      nodeMeta: nodes.Cube026_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.material,
         geometry: nodes.Cube038_Red_0.geometry,
         rotation: [halfPi, 0, Math.PI],
+        nodeMeta: nodes.Cube038_Red_0,
       },
     ],
-    [
-      {
-        type: "cube",
-        material: materials.Cube,
-        geometry: nodes.Cube009_Cube_0.geometry,
-        rotation: [Math.PI, 0, 0],
-      },
+  },
+  {
+    rotation: [0, 0, 0],
+    cube: {
+      type: "cube",
+      userData: { id: "Cube009_Cube_0" },
+      pseudoPosition: new Vector3(...[0, -1, 0]),
+      material: materials.Cube,
+      geometry: nodes.Cube009_Cube_0.geometry,
+      rotation: [Math.PI, 0, 0],
+      nodeMeta: nodes.Cube009_Cube_0,
+    },
+    labelList: [
       {
         type: "label",
         material: materials.Orange,
         geometry: nodes.Cube054_Orange_0.geometry,
         rotation: [Math.PI, 0, 0],
+        nodeMeta: nodes.Cube054_Orange_0,
       },
     ],
-  ];
-};
+  },
+];

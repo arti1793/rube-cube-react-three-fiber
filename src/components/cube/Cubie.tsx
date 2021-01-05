@@ -1,40 +1,43 @@
 import * as React from "react";
-import { useHover } from "../../hooks/useHover";
-import { ICubiePart } from "./CubeTypes";
+import { ReactEventHandlers } from "react-use-gesture/dist/types";
+import { ICubieConfig, ICubiePart, ILabelPart } from "./CubeTypes";
 export interface ICubie {
-  cubiePartList: ICubiePart[];
+  cubieConfig: ICubieConfig;
+  bindEvents: ReactEventHandlers;
 }
-export const Cubie: React.FC<ICubie> = ({ cubiePartList }) => {
-  const [hovered, bindHover] = useHover();
 
+const CommonMesh: React.FC<ICubiePart | ILabelPart> = ({
+  geometry,
+  rotation,
+  material,
+  nodeMeta,
+}) => {
   return (
-    <>
-      {cubiePartList.map(({ type, material, geometry, rotation }, i) => (
-        <mesh
-          key={i}
-          {...bindHover}
-          onClick={(ev) => {
-            if (type === "label") return;
-            ev.stopPropagation();
-            console.log({
-              position: geometry.boundingBox?.max
-                ?.toArray()
-                .map((num) => Math.round(num))
-                .join(" "),
-              type,
-              material,
-              geometry,
-              rotation,
-            });
-          }}
-          castShadow
-          receiveShadow
-          material={material}
-          geometry={geometry}
-          rotation={rotation}
-          scale={hovered ? [101, 101, 101] : [100, 100, 100]}
-        />
+    <mesh
+      castShadow
+      receiveShadow
+      material={material}
+      geometry={geometry}
+      rotation={rotation}
+      scale={[100, 100, 100]}
+    />
+  );
+};
+export const Cubie: React.FC<ICubie> = ({
+  cubieConfig: { cube, labelList, rotation },
+  bindEvents,
+}) => {
+  return (
+    <group
+      attach={"group"}
+      {...bindEvents}
+      userData={cube.userData}
+      rotation={[rotation[2], -rotation[0], rotation[1]]}
+    >
+      <CommonMesh {...cube} />
+      {labelList.map((label, i) => (
+        <CommonMesh key={i} {...label} />
       ))}
-    </>
+    </group>
   );
 };

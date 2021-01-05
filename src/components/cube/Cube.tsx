@@ -8,26 +8,20 @@ title: RUBIK'S CUBE
 
 import * as React from "react";
 import * as THREE from "three";
-import { useRef, useState, useEffect } from "react";
-import { useFrame } from "react-three-fiber";
+import { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
 
-import { useAnimations } from "@react-three/drei/useAnimations";
-import { GLTFResult, ICubiePart } from "./CubeTypes";
-import { cubeConfig2 } from "./CubeConstants";
-import { Cubie } from "./Cubie";
-import { useSpring, useTrail } from "react-spring";
-import { useHotkeys } from "react-hotkeys-hook";
-import { useCubeViewRotation, useLeanFlags } from "./CubeHelpers";
-// import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
-// import { useSpring } from "react-spring";
+import { GLTFResult } from "./CubeTypes";
+import { getConfig } from "./CubeConstants";
+import { CubeRotator } from "./CubeRotator";
+import {
+  useCubeViewRotation,
+  useLeanFlags,
+} from "../../hooks/useCubeViewRotation";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
   const result = useGLTF("/cube.gltf") as GLTFResult;
-  const { animations } = result;
-  const { actions } = useAnimations(animations, (group as unknown) as any);
-  ((window as unknown) as any).actions = actions;
 
   const flags = useLeanFlags();
   const rotation = useCubeViewRotation(flags, group.current?.rotation);
@@ -40,9 +34,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       rotation={[rotation.x, rotation.y, rotation.z]}
     >
       <group position={[0, 0, 0]} rotation={[-Math.PI, 0, -Math.PI / 2]}>
-        {cubeConfig2(result).map((cubiePartList: ICubiePart[], i) => (
-          <Cubie key={i} cubiePartList={cubiePartList} />
-        ))}
+        <CubeRotator config={getConfig(result)} />
       </group>
     </group>
   );

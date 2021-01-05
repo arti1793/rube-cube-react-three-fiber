@@ -9191,6 +9191,11 @@ react-three-fiber@^5.3.10:
     use-asset "^0.1.5"
     utility-types "^3.10.0"
 
+react-use-gesture@^9.0.0-beta.11:
+  version "9.0.0-beta.11"
+  resolved "https://registry.yarnpkg.com/react-use-gesture/-/react-use-gesture-9.0.0-beta.11.tgz#7849219e91d3c8a1b396c4036d40125fe6ed1d06"
+  integrity sha512-lpn39vmrDu/zB2bNx7rjaL0+Gjm17a9mzn53bX9IP4TIjMUxXlsB0IkiFj/B23F0vq1A9ozDLGHl2OaXkKJcBg==
+
 react-use-measure@^2.0.3:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/react-use-measure/-/react-use-measure-2.0.3.tgz#7b56ae3ca19ccf62326933678625a8ff6b3f90a3"

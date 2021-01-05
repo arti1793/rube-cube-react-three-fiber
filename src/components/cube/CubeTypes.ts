@@ -1,12 +1,38 @@
-import { BufferGeometry, Geometry, MeshStandardMaterial } from "three";
+import {
+  BufferGeometry,
+  Geometry,
+  Mesh,
+  MeshStandardMaterial,
+  Vector3,
+  Vector3Tuple,
+} from "three";
 import { GLTF } from "three/examples/jsm/loaders/GLTFLoader";
 
 export interface ICubiePart {
-  type: "cube" | "label";
+  userData: { id: string };
+  type: "cube";
   material: MeshStandardMaterial;
   geometry: Geometry | BufferGeometry;
-  rotation: [number, number, number];
+  rotation: Vector3Tuple;
+  nodeMeta: Mesh;
+  pseudoPosition: Vector3;
 }
+
+export interface ILabelPart {
+  type: "label";
+  material: MeshStandardMaterial;
+  geometry: Geometry | BufferGeometry;
+  rotation: Vector3Tuple;
+  nodeMeta: Mesh;
+}
+
+export interface ICubieConfig {
+  cube: ICubiePart;
+  labelList: Array<ILabelPart>;
+  rotation: Vector3Tuple;
+}
+
+export type TConfig = Array<ICubieConfig>;
 
 export type GLTFResult = GLTF & {
   nodes: CubeMeshNodes;
