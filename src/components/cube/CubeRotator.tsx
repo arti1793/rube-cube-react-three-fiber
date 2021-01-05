@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Vector3 } from "three";
 import { findCubieBy } from "./CubeHelpers";
 import { ICubieConfig, TConfig } from "./CubeTypes";
 import { Cubie } from "./Cubie";
@@ -11,20 +12,14 @@ const selectFacesFor = (
   cubieConfig: ICubieConfig,
   config: TConfig
 ): [ICubieConfig[], ICubieConfig[], ICubieConfig[]] => {
-  return cubieConfig.cube.pseudoPosition
+  return cubieConfig.position
     .toArray()
     .map((XorYorZ, index) =>
-      config.filter(
-        ({ cube }) => cube.pseudoPosition.toArray()[index] === XorYorZ
-      )
+      config.filter(({ position }) => position.toArray()[index] === XorYorZ)
     ) as [ICubieConfig[], ICubieConfig[], ICubieConfig[]];
 };
 export const CubeRotator: React.FC<ICubeRotator> = ({ config }) => {
   const [configState, setState] = React.useState(config);
-
-  //   React.useEffect(() => {
-  //     console.log(configState, setState);
-  //   }, []);
 
   const handleClick = (ev: any) => {
     ev.stopPropagation();
@@ -36,21 +31,24 @@ export const CubeRotator: React.FC<ICubeRotator> = ({ config }) => {
       one: finded,
       availablefaces,
     });
-    const selectedFaceByX = availablefaces[0];
+    const [selectedFaceByX, selectedFaceByY] = availablefaces;
 
-    console.log(
-      configState.filter((cubieConfig) => selectedFaceByX.includes(cubieConfig))
-    );
     setState(
       configState.map((cubieConfig) =>
-        selectedFaceByX.includes(cubieConfig)
+        selectedFaceByY.includes(cubieConfig)
           ? {
               ...cubieConfig,
               rotation: [
-                cubieConfig.rotation[0] + 0.1,
-                cubieConfig.rotation[1],
+                cubieConfig.rotation[0],
+                cubieConfig.rotation[1] + Math.PI / 2,
                 cubieConfig.rotation[2],
               ],
+              position: cubieConfig.position
+                .applyAxisAngle(
+                  new Vector3(...[0, 1, 0]),
+                  cubieConfig.rotation[1] + Math.PI / 2
+                )
+                .round(),
             }
           : cubieConfig
       )

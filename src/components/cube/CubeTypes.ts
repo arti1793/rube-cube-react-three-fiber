@@ -15,7 +15,6 @@ export interface ICubiePart {
   geometry: Geometry | BufferGeometry;
   rotation: Vector3Tuple;
   nodeMeta: Mesh;
-  pseudoPosition: Vector3;
 }
 
 export interface ILabelPart {
@@ -30,6 +29,7 @@ export interface ICubieConfig {
   cube: ICubiePart;
   labelList: Array<ILabelPart>;
   rotation: Vector3Tuple;
+  position: Vector3;
 }
 
 export type TConfig = Array<ICubieConfig>;

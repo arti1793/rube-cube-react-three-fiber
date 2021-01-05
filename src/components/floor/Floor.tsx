@@ -6,7 +6,7 @@ export const Floor = () => {
       <mesh
         attach={"mesh"}
         rotation={[-Math.PI / 2, 0, 0]}
-        position={[0, -300, 0]}
+        position={[0, -500, 0]}
         receiveShadow
       >
         <planeBufferGeometry

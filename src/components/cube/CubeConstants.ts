@@ -9,10 +9,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
 }) => [
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube015_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube015_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -44,10 +44,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, 1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube010_Cube_0" },
-      pseudoPosition: new Vector3(...[0, 1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube010_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -72,10 +72,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube016_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube016_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -107,10 +107,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube012_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube012_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -135,10 +135,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube017_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube017_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -170,10 +170,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, 1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube024_Cube_0" },
-      pseudoPosition: new Vector3(...[0, 1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube024_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -198,10 +198,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube014_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube014_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -233,10 +233,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube027_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube027_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -261,10 +261,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 0, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube032_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 0, -1]),
       material: materials.Cube,
       geometry: nodes.Cube032_Cube_0.geometry,
       rotation: [-halfPi, 0, halfPi],
@@ -289,10 +289,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, 0, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube021_Cube_0" },
-      pseudoPosition: new Vector3(...[0, 0, 1]),
       material: materials.Cube,
       geometry: nodes.Cube021_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -310,10 +310,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 0, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube011_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 0, 1]),
       material: materials.Cube,
       geometry: nodes.Cube011_Cube_0.geometry,
       rotation: [-halfPi, 0, halfPi],
@@ -338,10 +338,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 0, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube025_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 0, 0]),
       material: materials.Cube,
       geometry: nodes.Cube025_Cube_0.geometry,
       rotation: [-halfPi, halfPi, 0],
@@ -359,10 +359,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, 0, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube030_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, 0, -1]),
       material: materials.Cube,
       geometry: nodes.Cube030_Cube_0.geometry,
       rotation: [-halfPi, 0, halfPi],
@@ -387,10 +387,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, 0, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube007_Cube_0" },
-      pseudoPosition: new Vector3(...[0, 0, -1]),
       material: materials.Cube,
       geometry: nodes.Cube007_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -408,10 +408,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 0, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube031_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 0, 1]),
       material: materials.Cube,
       geometry: nodes.Cube031_Cube_0.geometry,
       rotation: [-halfPi, 0, halfPi],
@@ -436,10 +436,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, 0, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube008_Cube_0" },
-      pseudoPosition: new Vector3(...[1, 0, 0]),
       material: materials.Cube,
       geometry: nodes.Cube008_Cube_0.geometry,
       rotation: [-halfPi, halfPi, 0],
@@ -457,10 +457,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, -1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube020_Cube_0" },
-      pseudoPosition: new Vector3(...[1, -1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube020_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -492,10 +492,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, -1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube001_Cube_0" },
-      pseudoPosition: new Vector3(...[1, -1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube001_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -520,10 +520,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, -1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube022_Cube_0" },
-      pseudoPosition: new Vector3(...[0, -1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube022_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -548,10 +548,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, -1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube019_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, -1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube019_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -583,10 +583,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, -1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube029_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, -1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube029_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -611,10 +611,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[-1, -1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube018_Cube_0" },
-      pseudoPosition: new Vector3(...[-1, -1, -1]),
       material: materials.Cube,
       geometry: nodes.Cube018_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -646,10 +646,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, -1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube023_Cube_0" },
-      pseudoPosition: new Vector3(...[0, -1, 1]),
       material: materials.Cube,
       geometry: nodes.Cube023_Cube_0.geometry,
       rotation: [0, 1.57, 0],
@@ -674,10 +674,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[1, -1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube000_Cube_0" },
-      pseudoPosition: new Vector3(...[1, -1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube000_Cube_0.geometry,
       rotation: [-Math.PI / 2, 0, 0],
@@ -709,10 +709,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, 1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube026_Cube_0" },
-      pseudoPosition: new Vector3(...[0, 1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube026_Cube_0.geometry,
       rotation: [-halfPi, 0, 0],
@@ -730,10 +730,10 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: [0, 0, 0],
+    position: new Vector3(...[0, -1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube009_Cube_0" },
-      pseudoPosition: new Vector3(...[0, -1, 0]),
       material: materials.Cube,
       geometry: nodes.Cube009_Cube_0.geometry,
       rotation: [Math.PI, 0, 0],
