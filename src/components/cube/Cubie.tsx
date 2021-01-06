@@ -32,7 +32,7 @@ export const Cubie: React.FC<ICubie> = ({
       attach={"group"}
       {...bindEvents}
       userData={cube.userData}
-      rotation={[rotation[1], -rotation[0], rotation[2]]}
+      rotation={[rotation.y, -rotation.x, rotation.z]}
     >
       <CommonMesh {...cube} />
       {labelList.map((label, i) => (

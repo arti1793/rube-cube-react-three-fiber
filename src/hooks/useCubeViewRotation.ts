@@ -1,6 +1,7 @@
 import { useSpring } from "react-spring";
 import { useState } from "react";
-import { useHotkeys } from "react-hotkeys-hook";
+import { useHotkeys, useIsHotkeyPressed } from "react-hotkeys-hook";
+import { useFrame } from "react-three-fiber";
 interface ILean {
   leanRight: boolean;
   leanLeft: boolean;
@@ -45,12 +46,13 @@ export const useLeanFlags = () => {
       leanDefault: flags.leanRight,
     }));
   });
-  useHotkeys("q", () => {
+  useHotkeys("q", (ev) => {
     setFlags((flags) => ({
       leanLeft: !flags.leanLeft,
       leanRight: false,
       leanDefault: flags.leanLeft,
     }));
   });
+
   return flags;
 };

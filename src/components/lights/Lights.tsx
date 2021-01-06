@@ -4,7 +4,7 @@ softShadows({});
 export const Lights: React.FC = () => {
   return (
     <>
-      {/* <fog attach="fog" args={["#fff", 0, 1000]} /> */}
+      {/* <fog attach="fog" args={["#fff", 1000]} /> */}
       <ambientLight intensity={0.4} />
       <directionalLight
         position={[-100, 800, -100]}

@@ -8,7 +8,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   nodes,
 }) => [
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 1, 1]),
     cube: {
       type: "cube",
@@ -43,7 +43,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, 1, 1]),
     cube: {
       type: "cube",
@@ -71,7 +71,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 1, 1]),
     cube: {
       type: "cube",
@@ -106,7 +106,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 1, 0]),
     cube: {
       type: "cube",
@@ -134,7 +134,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 1, -1]),
     cube: {
       type: "cube",
@@ -169,7 +169,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, 1, -1]),
     cube: {
       type: "cube",
@@ -197,7 +197,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 1, -1]),
     cube: {
       type: "cube",
@@ -232,7 +232,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 1, 0]),
     cube: {
       type: "cube",
@@ -260,7 +260,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 0, -1]),
     cube: {
       type: "cube",
@@ -288,7 +288,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, 0, 1]),
     cube: {
       type: "cube",
@@ -309,7 +309,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 0, 1]),
     cube: {
       type: "cube",
@@ -337,7 +337,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 0, 0]),
     cube: {
       type: "cube",
@@ -358,7 +358,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, 0, -1]),
     cube: {
       type: "cube",
@@ -386,7 +386,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, 0, -1]),
     cube: {
       type: "cube",
@@ -407,7 +407,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 0, 1]),
     cube: {
       type: "cube",
@@ -435,7 +435,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, 0, 0]),
     cube: {
       type: "cube",
@@ -456,7 +456,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, -1, -1]),
     cube: {
       type: "cube",
@@ -491,7 +491,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, -1, 1]),
     cube: {
       type: "cube",
@@ -519,7 +519,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, -1, 1]),
     cube: {
       type: "cube",
@@ -547,7 +547,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, -1, 0]),
     cube: {
       type: "cube",
@@ -582,7 +582,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, -1, -1]),
     cube: {
       type: "cube",
@@ -610,7 +610,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[-1, -1, -1]),
     cube: {
       type: "cube",
@@ -645,7 +645,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, -1, 1]),
     cube: {
       type: "cube",
@@ -673,7 +673,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[1, -1, 0]),
     cube: {
       type: "cube",
@@ -708,7 +708,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, 1, 0]),
     cube: {
       type: "cube",
@@ -729,7 +729,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
     ],
   },
   {
-    rotation: [0, 0, 0],
+    rotation: new Vector3(...[0, 0, 0]),
     position: new Vector3(...[0, -1, 0]),
     cube: {
       type: "cube",

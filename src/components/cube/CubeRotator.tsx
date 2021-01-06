@@ -18,6 +18,52 @@ const selectFacesFor = (
       config.filter(({ position }) => position.toArray()[index] === XorYorZ)
     ) as [ICubieConfig[], ICubieConfig[], ICubieConfig[]];
 };
+
+const rotate = (
+  cubie: ICubieConfig,
+  config: TConfig,
+  axis: "x" | "y" | "z",
+  direction: "+" | "-"
+): TConfig => {
+  const availablefaces = selectFacesFor(cubie, config);
+  const [selectedFaceByX, selectedFaceByY, selectedFaceByZ] = availablefaces;
+  const faceByAxisMap = {
+    x: selectedFaceByX,
+    y: selectedFaceByY,
+    z: selectedFaceByZ,
+  };
+  const pivotByAxis = {
+    x: new Vector3(1, 0, 0),
+    y: new Vector3(0, 1, 0),
+    z: new Vector3(0, 0, 1),
+  };
+
+  const rotateCubie = ({
+    rotation,
+    position,
+    ...rest
+  }: ICubieConfig): ICubieConfig => {
+    const newRotation = rotation
+      .clone()
+      [`set${axis.toUpperCase()}` as "setX" | "setY" | "setZ"](
+        rotation[axis] + Math.PI / 8
+      );
+    console.log(rotation, newRotation);
+    return {
+      ...rest,
+      rotation: newRotation,
+      position: position
+        .applyAxisAngle(pivotByAxis[axis], rotation[axis] + Math.PI / 8)
+        .round(),
+    };
+  };
+
+  return config.map((cubieConfig) =>
+    faceByAxisMap[axis].includes(cubieConfig)
+      ? rotateCubie(cubieConfig)
+      : cubieConfig
+  );
+};
 export const CubeRotator: React.FC<ICubeRotator> = ({ config }) => {
   const [configState, setState] = React.useState(config);
 
@@ -25,34 +71,11 @@ export const CubeRotator: React.FC<ICubeRotator> = ({ config }) => {
     ev.stopPropagation();
     const finded = findCubieBy(ev.eventObject.userData.id, configState);
     if (!finded) return;
-    const availablefaces = selectFacesFor(finded, configState);
     console.log({
       ev,
-      one: finded,
-      availablefaces,
     });
-    const [selectedFaceByX, selectedFaceByY] = availablefaces;
 
-    setState(
-      configState.map((cubieConfig) =>
-        selectedFaceByY.includes(cubieConfig)
-          ? {
-              ...cubieConfig,
-              rotation: [
-                cubieConfig.rotation[0],
-                cubieConfig.rotation[1] + Math.PI / 2,
-                cubieConfig.rotation[2],
-              ],
-              position: cubieConfig.position
-                .applyAxisAngle(
-                  new Vector3(...[0, 1, 0]),
-                  cubieConfig.rotation[1] + Math.PI / 2
-                )
-                .round(),
-            }
-          : cubieConfig
-      )
-    );
+    setState(rotate(finded, configState, "x", "+"));
   };
   return (
     <>
