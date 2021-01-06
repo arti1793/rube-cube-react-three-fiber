@@ -26,7 +26,7 @@ const ZoomWithOrbital = () => {
   });
   return (
     <OrbitControls
-      enableZoom={true}
+      enableZoom={false}
       enablePan={false}
       target={[0, 0, 0]}
       args={[camera, gl.domElement]}

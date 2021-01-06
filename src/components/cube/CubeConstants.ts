@@ -261,7 +261,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[1, 0, -1]),
+    position: new Vector3(...[1, 0, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube032_Cube_0" },
@@ -408,7 +408,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[1, 0, 1]),
+    position: new Vector3(...[1, 0, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube031_Cube_0" },
@@ -457,7 +457,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[1, -1, -1]),
+    position: new Vector3(...[1, -1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube020_Cube_0" },
@@ -492,7 +492,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[1, -1, 1]),
+    position: new Vector3(...[1, -1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube001_Cube_0" },
@@ -548,7 +548,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[-1, -1, 0]),
+    position: new Vector3(...[-1, -1, 1]),
     cube: {
       type: "cube",
       userData: { id: "Cube019_Cube_0" },
@@ -583,7 +583,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[-1, -1, -1]),
+    position: new Vector3(...[-1, -1, 0]),
     cube: {
       type: "cube",
       userData: { id: "Cube029_Cube_0" },
@@ -646,7 +646,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[0, -1, 1]),
+    position: new Vector3(...[0, -1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube023_Cube_0" },
@@ -674,7 +674,7 @@ export const getConfig: (result: GLTFResult) => TConfig = ({
   },
   {
     rotation: new Vector3(...[0, 0, 0]),
-    position: new Vector3(...[1, -1, 0]),
+    position: new Vector3(...[1, -1, -1]),
     cube: {
       type: "cube",
       userData: { id: "Cube000_Cube_0" },
