@@ -1,9 +1,11 @@
 import * as React from "react";
+import { applyProps, useFrame } from "react-three-fiber";
 import { ReactEventHandlers } from "react-use-gesture/dist/types";
-import { Group } from "three";
-import { ICubieConfig, ICubiePart, ILabelPart } from "./CubeTypes";
+import { useStore } from "../../store/store";
+import { ICubiePart, ILabelPart } from "./CubeTypes";
+
 export interface ICubie {
-  cubieConfig: ICubieConfig;
+  cubieId: string;
   bindEvents: ReactEventHandlers;
 }
 
@@ -26,32 +28,27 @@ const CommonMesh: React.FC<ICubiePart | ILabelPart> = ({
     />
   );
 };
-export const Cubie: React.FC<ICubie> = ({
-  cubieConfig: { cube, labelList, rotation, position },
-  bindEvents,
-}) => {
-  const group = React.useRef<Group>();
+export const Cubie: React.FC<ICubie> = ({ bindEvents, cubieId }) => {
+  const animatedParams = useStore((state) => state.animatedParams[cubieId]);
+  const { labelList, cube } = useStore((state) => state.config[cubieId]);
 
   return (
     <group
-      ref={group}
+      position={animatedParams.scaledPosition}
+      rotation={animatedParams.rotation}
       attach={"group"}
-      {...bindEvents}
       userData={cube.userData}
-      rotation={[rotation.y, rotation.x, rotation.z]}
-      position={[
-        position.x * cubieSize,
-        position.y * cubieSize,
-        position.z * cubieSize,
-      ]}
+      {...bindEvents}
     >
       {/* Static rotation of imported mesh to match global axes */}
       <group
-        position={[
-          -position.x * cubieSize,
-          -position.y * cubieSize,
-          -position.z * cubieSize,
-        ]}
+        position={
+          animatedParams.initialPosition.map((v) => -v * cubieSize) as [
+            number,
+            number,
+            number
+          ]
+        }
         rotation={[-Math.PI, 0, -Math.PI / 2]}
       >
         <CommonMesh {...cube} />

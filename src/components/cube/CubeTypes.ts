@@ -28,7 +28,6 @@ export interface ILabelPart {
 export interface ICubieConfig {
   cube: ICubiePart;
   labelList: Array<ILabelPart>;
-  rotation: Vector3;
   position: Vector3;
 }
 

@@ -12,12 +12,12 @@ import { useRef } from "react";
 import { useGLTF } from "@react-three/drei/useGLTF";
 
 import { GLTFResult } from "./CubeTypes";
-import { getConfig } from "./CubeConstants";
 import { CubeRotator } from "./CubeRotator";
 import {
   useCubeViewRotation,
   useLeanFlags,
 } from "../../hooks/useCubeViewRotation";
+import { useStore } from "./../../store/store";
 
 export default function Model(props: JSX.IntrinsicElements["group"]) {
   const group = useRef<THREE.Group>();
@@ -26,6 +26,10 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
   const flags = useLeanFlags();
   const rotation = useCubeViewRotation(flags, group.current?.rotation);
 
+  const store = useStore();
+  React.useEffect(() => {
+    store.setFromResultConfig(result);
+  }, []);
   return (
     <group
       ref={group}
@@ -33,7 +37,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       rotation={[rotation.x, rotation.y, rotation.z]}
     >
-      <CubeRotator config={getConfig(result)} />
+      <CubeRotator />
     </group>
   );
 }
