@@ -13,11 +13,12 @@ export const CubeRotator: React.FC<ICubeRotator> = () => {
   const handleClick = (ev: any) => {
     ev.stopPropagation();
 
-    console.log(ev.eventObject.position);
+    console.log(ev.eventObject.position, ev.eventObject.rotation);
 
+    const direction = !isPressed("shift");
     isPressed("space") && console.log("rotating");
     isPressed("space") &&
-      rotate(ev.eventObject.userData.id, 0, true, Math.PI / 2);
+      rotate(ev.eventObject.userData.id, 1, direction, Math.PI / 2);
   };
   return (
     <>

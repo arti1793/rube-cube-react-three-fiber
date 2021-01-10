@@ -120,16 +120,9 @@ export const useStore = create<TStore>(
           state.animatedParams[cubieId].scaledPosition = positionnew.map(
             (v) => v * 200
           ) as [number, number, number];
-          /**TODO: fix cubie rotation */
-          state.animatedParams[cubieId].rotation = new Euler()
-            .fromArray(state.animatedParams[cubieId].rotation)
-            .setFromRotationMatrix(
-              createRotationalMatrix(
-                axis,
-                direction ? rotationValue : -rotationValue
-              )
-            )
-            .toArray() as [number, number, number];
+          state.animatedParams[cubieId].rotation[axis] += direction
+            ? rotationValue
+            : -rotationValue;
         });
       }),
   }))
