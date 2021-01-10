@@ -33,9 +33,7 @@ export default function Model(props: JSX.IntrinsicElements["group"]) {
       dispose={null}
       rotation={[rotation.x, rotation.y, rotation.z]}
     >
-      <group position={[0, 0, 0]} rotation={[-Math.PI, 0, -Math.PI / 2]}>
-        <CubeRotator config={getConfig(result)} />
-      </group>
+      <CubeRotator config={getConfig(result)} />
     </group>
   );
 }
