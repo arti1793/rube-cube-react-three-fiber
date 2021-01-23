@@ -1,44 +1,68 @@
+import { useCallback, useEffect, useRef, useState } from "react";
+import { useSpring } from "react-spring";
 import { Handler } from "react-use-gesture/dist/types";
 import { Euler, Group, MathUtils, Vector3 } from "three";
 
 class Rotator {
   current = 0;
 
-  group = (groups: Group[], tempGroup: Group) => {
-    groups.forEach((gr) => tempGroup.attach(gr));
+  constructor(
+    private groups: Group[],
+    public tempGroup: Group,
+    private outerGroup: Group,
+    private axis: number
+  ) {}
+
+  group = () => {
+    this.groups.forEach((gr) => this.tempGroup.attach(gr));
     this.current = 0;
   };
-  rotate = (tempGroup: Group, axis: number, rotateValue: number) => {
-    if (tempGroup.children.length !== 8 && tempGroup.children.length !== 9) {
-      console.warn("cannot rotate", tempGroup.children.length, "elements");
+  rotate = (rotateValue: number) => {
+    if (
+      this.tempGroup.children.length !== 8 &&
+      this.tempGroup.children.length !== 9
+    ) {
+      console.warn("cannot rotate", this.tempGroup.children.length, "elements");
       return;
     }
-    tempGroup.rotateOnAxis(new Vector3().setComponent(axis, 1), rotateValue);
+    this.tempGroup.rotateOnAxis(
+      new Vector3().setComponent(this.axis, 1),
+      rotateValue
+    );
     this.current += rotateValue;
   };
 
-  completeMove = (tempGroup: Group, axis: number) => {
+  completeMove = () => {
     console.log(MathUtils.radToDeg(this.current));
 
     const rest = this.current % (Math.PI / 2);
     if (rest > Math.PI / 4) {
-      this.rotate(tempGroup, axis, Math.PI / 2 - rest);
+      this.rotate(Math.PI / 2 - rest);
     } else {
-      this.rotate(tempGroup, axis, -rest);
+      this.rotate(-rest);
     }
     this.current = 0;
   };
-  dispose = (groups: Group[], tempGroup: Group, outerGroup: Group) => {
-    groups.forEach((gr) => {
-      outerGroup.attach(gr);
+  dispose = () => {
+    this.groups.forEach((gr) => {
+      this.outerGroup.attach(gr);
       gr.position.round();
     });
 
-    tempGroup.setRotationFromEuler(new Euler(0, 0, 0));
+    this.tempGroup.setRotationFromEuler(new Euler(0, 0, 0));
   };
 }
 
-const rotator = new Rotator();
+interface State {
+  // groups: Group[];
+  // tempGroup: Group;
+  // outerGroup: Group;
+  // axis: number;
+  current: number;
+}
+
+const axis = ((window as unknown) as any).axis || 1;
+
 export const useRotate = ({
   tempGroup,
   outerGroup,
@@ -48,6 +72,76 @@ export const useRotate = ({
   outerGroup: Group;
   getFace: (cubieId: string, axis: number) => Group[];
 }): Handler<"drag", React.PointerEvent<Group>> => {
+  const [rotateValue, setRotate] = useState<number>(0);
+  const [isRotating, setIsRotating] = useState(false);
+  const groupsRef = useRef<Group[]>([]);
+
+  const [spring, set] = useSpring(() => ({
+    rotateValue: rotateValue,
+    from: { rotateValue: 0 },
+    onFrame: ({ rotateValue }: { rotateValue: number }) => {
+      tempGroup.setRotationFromAxisAngle(
+        new Vector3().setComponent(axis, 1),
+        rotateValue
+      );
+    },
+    // onRest: ({ rotateValue }) => {
+    //   // !isRotating && rotateValue && dispose();
+    // },
+  }));
+
+  const group = (groups: Group[]) => {
+    console.log("group", groups.length);
+    groupsRef.current = groups;
+    groupsRef.current.forEach((gr) => tempGroup.attach(gr));
+
+    setRotate(0);
+    setIsRotating(true);
+  };
+
+  const rotate = (diff: number) => {
+    if (tempGroup.children.length !== 8 && tempGroup.children.length !== 9) {
+      console.warn("cannot rotate", tempGroup.children.length, "elements");
+      return;
+    }
+    setRotate(rotateValue + diff);
+  };
+
+  const dispose = useCallback(() => {
+    console.log("dispose");
+    groupsRef.current.forEach((gr) => {
+      outerGroup.attach(gr);
+      gr.position.round();
+    });
+
+    tempGroup.setRotationFromEuler(new Euler(0, 0, 0));
+    setRotate(0);
+    groupsRef.current = [];
+  }, [outerGroup, tempGroup]);
+
+  // useEffect(() => {
+  //   if (rotateValue === spring.rotateValue.getValue()) {
+  //     groupsRef.current.length && !isRotating && dispose();
+  //   }
+  // }, [rotateValue, isRotating, spring, dispose]);
+
+  const completeMove = () => {
+    const rest = Math.abs(rotateValue % (Math.PI / 2));
+    const sign = Math.sign(rotateValue);
+    if (sign > 0) {
+      if (rest > Math.PI / 4) {
+        rotate(Math.PI / 2 - rest);
+      } else {
+        rotate(-rest);
+      }
+    } else {
+      if (rest > Math.PI / 4) {
+        rotate(-(Math.PI / 2 - rest));
+      } else {
+        rotate(rest);
+      }
+    }
+  };
   return ({
     event,
     movement,
@@ -59,21 +153,16 @@ export const useRotate = ({
     delta,
     cancel,
   }) => {
-    const axis = ((window as unknown) as any).axis;
-
-    const groups = getFace(
-      ((event as unknown) as any).eventObject.userData.id,
-      axis
-    );
-
     if (first) {
-      if (rotator.current) cancel();
-      rotator.group(groups, tempGroup);
+      if (isRotating) {
+        console.log("cancelling");
+        cancel();
+      }
+      group(getFace(((event as unknown) as any).eventObject.userData.id, axis));
     } else if (last) {
-      rotator.completeMove(tempGroup, axis);
-      rotator.dispose(groups, tempGroup, outerGroup);
+      completeMove();
     } else {
-      rotator.rotate(tempGroup, axis, delta[axis]);
+      rotate(delta[axis]);
     }
   };
 };
